@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		E815E5551AE5E8E7006C97F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815E5541AE5E8E7006C97F6 /* AppDelegate.swift */; };
 		E815E5581AE5E8E7006C97F6 /* PIP_01.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E815E5561AE5E8E7006C97F6 /* PIP_01.xcdatamodeld */; };
-		E815E55A1AE5E8E7006C97F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815E5591AE5E8E7006C97F6 /* ViewController.swift */; };
 		E815E55D1AE5E8E7006C97F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E815E55B1AE5E8E7006C97F6 /* Main.storyboard */; };
 		E815E55F1AE5E8E7006C97F6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E815E55E1AE5E8E7006C97F6 /* Images.xcassets */; };
 		E815E5621AE5E8E7006C97F6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E815E5601AE5E8E7006C97F6 /* LaunchScreen.xib */; };
 		E815E56E1AE5E8E7006C97F6 /* PIP_01Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815E56D1AE5E8E7006C97F6 /* PIP_01Tests.swift */; };
+		E815E5781AE5F3B3006C97F6 /* PIPPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815E5771AE5F3B3006C97F6 /* PIPPhotosViewController.swift */; };
+		E815E57A1AE5F83D006C97F6 /* FlickrSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815E5791AE5F83D006C97F6 /* FlickrSearcher.swift */; };
+		E815E57C1AE72BBF006C97F6 /* PIPPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815E57B1AE72BBF006C97F6 /* PIPPhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +33,15 @@
 		E815E5531AE5E8E7006C97F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E815E5541AE5E8E7006C97F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E815E5571AE5E8E7006C97F6 /* PIP_01.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PIP_01.xcdatamodel; sourceTree = "<group>"; };
-		E815E5591AE5E8E7006C97F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E815E55C1AE5E8E7006C97F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E815E55E1AE5E8E7006C97F6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E815E5611AE5E8E7006C97F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E815E5671AE5E8E7006C97F6 /* PIP_01Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PIP_01Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E815E56C1AE5E8E7006C97F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E815E56D1AE5E8E7006C97F6 /* PIP_01Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIP_01Tests.swift; sourceTree = "<group>"; };
+		E815E5771AE5F3B3006C97F6 /* PIPPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PIPPhotosViewController.swift; path = ../PIPPhotosViewController.swift; sourceTree = "<group>"; };
+		E815E5791AE5F83D006C97F6 /* FlickrSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrSearcher.swift; sourceTree = "<group>"; };
+		E815E57B1AE72BBF006C97F6 /* PIPPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIPPhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +83,11 @@
 		E815E5511AE5E8E7006C97F6 /* PIP_01 */ = {
 			isa = PBXGroup;
 			children = (
+				E815E5771AE5F3B3006C97F6 /* PIPPhotosViewController.swift */,
+				E815E5791AE5F83D006C97F6 /* FlickrSearcher.swift */,
 				E815E5541AE5E8E7006C97F6 /* AppDelegate.swift */,
-				E815E5591AE5E8E7006C97F6 /* ViewController.swift */,
 				E815E55B1AE5E8E7006C97F6 /* Main.storyboard */,
+				E815E57B1AE72BBF006C97F6 /* PIPPhotoCell.swift */,
 				E815E55E1AE5E8E7006C97F6 /* Images.xcassets */,
 				E815E5601AE5E8E7006C97F6 /* LaunchScreen.xib */,
 				E815E5561AE5E8E7006C97F6 /* PIP_01.xcdatamodeld */,
@@ -215,9 +221,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E815E55A1AE5E8E7006C97F6 /* ViewController.swift in Sources */,
+				E815E57C1AE72BBF006C97F6 /* PIPPhotoCell.swift in Sources */,
 				E815E5581AE5E8E7006C97F6 /* PIP_01.xcdatamodeld in Sources */,
 				E815E5551AE5E8E7006C97F6 /* AppDelegate.swift in Sources */,
+				E815E5781AE5F3B3006C97F6 /* PIPPhotosViewController.swift in Sources */,
+				E815E57A1AE5F83D006C97F6 /* FlickrSearcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
