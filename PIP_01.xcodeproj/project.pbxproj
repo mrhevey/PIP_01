@@ -16,6 +16,7 @@
 		E815E5781AE5F3B3006C97F6 /* PIPPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815E5771AE5F3B3006C97F6 /* PIPPhotosViewController.swift */; };
 		E815E57A1AE5F83D006C97F6 /* FlickrSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815E5791AE5F83D006C97F6 /* FlickrSearcher.swift */; };
 		E815E57C1AE72BBF006C97F6 /* PIPPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815E57B1AE72BBF006C97F6 /* PIPPhotoCell.swift */; };
+		E8EAE5C41AE9A87E000394B8 /* PIPPhotoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EAE5C31AE9A87E000394B8 /* PIPPhotoHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		E815E5771AE5F3B3006C97F6 /* PIPPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PIPPhotosViewController.swift; path = ../PIPPhotosViewController.swift; sourceTree = "<group>"; };
 		E815E5791AE5F83D006C97F6 /* FlickrSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrSearcher.swift; sourceTree = "<group>"; };
 		E815E57B1AE72BBF006C97F6 /* PIPPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIPPhotoCell.swift; sourceTree = "<group>"; };
+		E8EAE5C31AE9A87E000394B8 /* PIPPhotoHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIPPhotoHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				E815E5771AE5F3B3006C97F6 /* PIPPhotosViewController.swift */,
 				E815E5791AE5F83D006C97F6 /* FlickrSearcher.swift */,
+				E8EAE5C31AE9A87E000394B8 /* PIPPhotoHeaderView.swift */,
 				E815E5541AE5E8E7006C97F6 /* AppDelegate.swift */,
 				E815E55B1AE5E8E7006C97F6 /* Main.storyboard */,
 				E815E57B1AE72BBF006C97F6 /* PIPPhotoCell.swift */,
@@ -225,6 +228,7 @@
 				E815E5581AE5E8E7006C97F6 /* PIP_01.xcdatamodeld in Sources */,
 				E815E5551AE5E8E7006C97F6 /* AppDelegate.swift in Sources */,
 				E815E5781AE5F3B3006C97F6 /* PIPPhotosViewController.swift in Sources */,
+				E8EAE5C41AE9A87E000394B8 /* PIPPhotoHeaderView.swift in Sources */,
 				E815E57A1AE5F83D006C97F6 /* FlickrSearcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,8 +359,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PIP_01/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -365,8 +371,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PIP_01/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -423,6 +431,7 @@
 				E815E5731AE5E8E7006C97F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E815E5741AE5E8E7006C97F6 /* Build configuration list for PBXNativeTarget "PIP_01Tests" */ = {
 			isa = XCConfigurationList;
@@ -431,6 +440,7 @@
 				E815E5761AE5E8E7006C97F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

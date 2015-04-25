@@ -18,6 +18,32 @@ class PIPPhotosViewController: UICollectionViewController {
     private var searches = [FlickrSearchResults]()
     private let flickr = Flickr()
     
+    var largePhotoIndexPath : NSIndexPath? {
+        didSet {
+            var indexPaths = [NSIndexPath]()
+            if largePhotoIndexPath != nil {
+                indexPaths.append(largePhotoIndexPath!)
+            }
+            if oldValue != nil {
+                indexPaths.append(oldValue!)
+            }
+            collectionView?.performBatchUpdates({self.collectionView?.reloadItemsAtIndexPaths(indexPaths)
+                return
+                }){
+                    completed in
+                    if self.largePhotoIndexPath != nil {
+                        self.collectionView?.scrollToItemAtIndexPath(self.largePhotoIndexPath!, atScrollPosition: .CenteredVertically, animated: true)
+                    }
+            }
+            
+        }
+    }
+    
+        
+    
+    
+    
+    
     func photoForIndexPath(indexPath: NSIndexPath) -> FlickrPhoto { return searches[indexPath.section].searchResults[indexPath.row]
     }
 
@@ -88,16 +114,84 @@ extension PIPPhotosViewController : UICollectionViewDataSource {
 //    }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        //1
+//        //1
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PIPPhotoCell
         //2
         let flickrPhoto = photoForIndexPath(indexPath)
         cell.backgroundColor = UIColor.blackColor()
+//        //3
+//        cell.imageView.image = flickrPhoto.thumbnail
+//        return cell
+        
+        //1
+        cell.activityIndicator.stopAnimating()
+        
+        //2
+        if indexPath != largePhotoIndexPath {
+            cell.imageView.image = flickrPhoto.thumbnail
+            return cell
+        }
+        
         //3
+        if flickrPhoto.largeImage != nil {
+            cell.imageView.image = flickrPhoto.largeImage
+            return cell
+        }
+        
+        //4
         cell.imageView.image = flickrPhoto.thumbnail
+        cell.activityIndicator.startAnimating()
+        
+        //5
+        flickrPhoto.loadLargeImage {
+            loadedFlickrPhoto, error in
+            
+            //6
+            cell.activityIndicator.stopAnimating()
+            
+            //7
+            if error != nil {
+                return
+            }
+            
+            if loadedFlickrPhoto.largeImage == nil {
+                return
+            }
+            
+            //8
+            if indexPath == self.largePhotoIndexPath {
+                if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? PIPPhotoCell {
+                    cell.imageView.image = loadedFlickrPhoto.largeImage
+                }
+            }
+        }
         
         return cell
     }
+    
+    override func collectionView(collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+            //1
+            switch kind {
+                //2
+            case UICollectionElementKindSectionHeader:
+                //3
+                let headerView =
+                collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+                    withReuseIdentifier: "PIPPhotoHeaderView",
+                    forIndexPath: indexPath)
+                    as! PIPPhotoHeaderView
+                headerView.label.text = searches[indexPath.section].searchTerm
+                return headerView
+            default:
+                //4
+                assert(false, "Unexpected element kind")
+            }
+    }
+    
+    
+    
 
 }
 
@@ -109,12 +203,21 @@ extension PIPPhotosViewController : UICollectionViewDelegateFlowLayout {
             
             let flickrPhoto =  photoForIndexPath(indexPath)
             //2
-            if var size = flickrPhoto.thumbnail?.size {
-                size.width += 10
-                size.height += 10
-                return size
+//            if var size = flickrPhoto.thumbnail?.size {
+//                size.width += 10
+//                size.height += 10
+//                return size
+//            }
+            if indexPath == largePhotoIndexPath {
+                var size = collectionView.bounds.size
+                size.height -= topLayoutGuide.length
+                size.height -= (sectionInsets.top + sectionInsets.right)
+                size.width -= (sectionInsets.left + sectionInsets.right)
+                return flickrPhoto.sizeToFillWidthOfSize(size)
             }
-            return CGSize(width: 100, height: 100)
+
+             return CGSize(width: 100, height: 100)
+   
     }
     
     //3
@@ -124,4 +227,24 @@ extension PIPPhotosViewController : UICollectionViewDelegateFlowLayout {
             return sectionInsets
     }
 }
+    
+    
+    extension PIPPhotosViewController : UICollectionViewDelegate {
+        
+        override func collectionView(collectionView: UICollectionView,
+            shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+                if largePhotoIndexPath == indexPath {
+                    largePhotoIndexPath = nil
+                }
+                else {
+                    largePhotoIndexPath = indexPath
+                }
+                return false
+        }
+    }
+    
+    
+    
+    
+
 
