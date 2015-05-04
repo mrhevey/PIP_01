@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>FEC8859B-4BDA-4B2E-861A-E6B62787789A</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>PIP_01</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>1CF990C494E79825086D8EE93E7DC99807BFC0E0</key>
 		<string>https://github.com/mrhevey/PIP_01.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>PIP_01.xcodeproj/project.xcworkspace</string>
+	<string>PIP_01.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1CF990C494E79825086D8EE93E7DC99807BFC0E0</key>
