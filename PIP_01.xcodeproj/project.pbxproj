@@ -16,6 +16,9 @@
 		E815E5781AE5F3B3006C97F6 /* PIPPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815E5771AE5F3B3006C97F6 /* PIPPhotosViewController.swift */; };
 		E815E57A1AE5F83D006C97F6 /* FlickrSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815E5791AE5F83D006C97F6 /* FlickrSearcher.swift */; };
 		E815E57C1AE72BBF006C97F6 /* PIPPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815E57B1AE72BBF006C97F6 /* PIPPhotoCell.swift */; };
+		E88215941AF6BF94000A5524 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88215931AF6BF94000A5524 /* InfoViewController.swift */; };
+		E88215961AF6EA9F000A5524 /* ApplicationHelp.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E88215951AF6EA9F000A5524 /* ApplicationHelp.pdf */; };
+		E8D71CB31AF5A2AB009E3DC1 /* PIP_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E8D71CB21AF5A2AB009E3DC1 /* PIP_icon.png */; };
 		E8EAE5C41AE9A87E000394B8 /* PIPPhotoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EAE5C31AE9A87E000394B8 /* PIPPhotoHeaderView.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,9 @@
 		E815E5771AE5F3B3006C97F6 /* PIPPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PIPPhotosViewController.swift; path = ../PIPPhotosViewController.swift; sourceTree = "<group>"; };
 		E815E5791AE5F83D006C97F6 /* FlickrSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrSearcher.swift; sourceTree = "<group>"; };
 		E815E57B1AE72BBF006C97F6 /* PIPPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIPPhotoCell.swift; sourceTree = "<group>"; };
+		E88215931AF6BF94000A5524 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = PIP_01/InfoViewController.swift; sourceTree = "<group>"; };
+		E88215951AF6EA9F000A5524 /* ApplicationHelp.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ApplicationHelp.pdf; path = PIP_01/ApplicationHelp.pdf; sourceTree = "<group>"; };
+		E8D71CB21AF5A2AB009E3DC1 /* PIP_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PIP_icon.png; sourceTree = "<group>"; };
 		E8EAE5C31AE9A87E000394B8 /* PIPPhotoHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIPPhotoHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +73,8 @@
 		E815E5461AE5E8E7006C97F6 = {
 			isa = PBXGroup;
 			children = (
+				E88215921AF6BEB7000A5524 /* Info */,
+				E8D71CB11AF5A1BE009E3DC1 /* Images */,
 				E815E5511AE5E8E7006C97F6 /* PIP_01 */,
 				E815E56A1AE5E8E7006C97F6 /* PIP_01Tests */,
 				E815E5501AE5E8E7006C97F6 /* Products */,
@@ -122,6 +130,23 @@
 				E815E56C1AE5E8E7006C97F6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E88215921AF6BEB7000A5524 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				E88215951AF6EA9F000A5524 /* ApplicationHelp.pdf */,
+				E88215931AF6BF94000A5524 /* InfoViewController.swift */,
+			);
+			name = Info;
+			sourceTree = "<group>";
+		};
+		E8D71CB11AF5A1BE009E3DC1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E8D71CB21AF5A2AB009E3DC1 /* PIP_icon.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +229,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8D71CB31AF5A2AB009E3DC1 /* PIP_icon.png in Resources */,
+				E88215961AF6EA9F000A5524 /* ApplicationHelp.pdf in Resources */,
 				E815E55D1AE5E8E7006C97F6 /* Main.storyboard in Resources */,
 				E815E5621AE5E8E7006C97F6 /* LaunchScreen.xib in Resources */,
 				E815E55F1AE5E8E7006C97F6 /* Images.xcassets in Resources */,
@@ -227,6 +254,7 @@
 				E815E57C1AE72BBF006C97F6 /* PIPPhotoCell.swift in Sources */,
 				E815E5581AE5E8E7006C97F6 /* PIP_01.xcdatamodeld in Sources */,
 				E815E5551AE5E8E7006C97F6 /* AppDelegate.swift in Sources */,
+				E88215941AF6BF94000A5524 /* InfoViewController.swift in Sources */,
 				E815E5781AE5F3B3006C97F6 /* PIPPhotosViewController.swift in Sources */,
 				E8EAE5C41AE9A87E000394B8 /* PIPPhotoHeaderView.swift in Sources */,
 				E815E57A1AE5F83D006C97F6 /* FlickrSearcher.swift in Sources */,
@@ -359,7 +387,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PIP_01/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
@@ -371,7 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PIP_01/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;

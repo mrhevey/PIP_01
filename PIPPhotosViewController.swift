@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class PIPPhotosViewController: UICollectionViewController {
 
     private let reuseIdentifier = "PIPCell"
@@ -17,6 +15,9 @@ class PIPPhotosViewController: UICollectionViewController {
     
     private var searches = [FlickrSearchResults]()
     private let flickr = Flickr()
+    
+    func photoForIndexPath(indexPath: NSIndexPath) -> FlickrPhoto { return searches[indexPath.section].searchResults[indexPath.row]
+    }
     
     var largePhotoIndexPath : NSIndexPath? {
         didSet {
@@ -39,14 +40,84 @@ class PIPPhotosViewController: UICollectionViewController {
         }
     }
     
-        
+    private var selectedPhotos = [FlickrPhoto]()
+    private let shareTextLabel = UILabel()
     
-    
-    
-    
-    func photoForIndexPath(indexPath: NSIndexPath) -> FlickrPhoto { return searches[indexPath.section].searchResults[indexPath.row]
+    func updateSharedPhotoCount() {
+        shareTextLabel.textColor = themeColor
+        shareTextLabel.text = "\(selectedPhotos.count) photos selected"
+        shareTextLabel.sizeToFit()
     }
+    
+    var sharing : Bool = false {
+        didSet {
+            collectionView?.allowsMultipleSelection = sharing
+            collectionView?.selectItemAtIndexPath(nil, animated: true, scrollPosition: .None)
+            selectedPhotos.removeAll(keepCapacity: false)
+            if sharing && largePhotoIndexPath != nil {
+                largePhotoIndexPath = nil
+            }
+            
+            let shareButton =
+            self.navigationItem.rightBarButtonItems!.first as! UIBarButtonItem
+            if sharing {
+                updateSharedPhotoCount()
+                let sharingDetailItem = UIBarButtonItem(customView: shareTextLabel)
+                navigationItem.setRightBarButtonItems([shareButton,sharingDetailItem], animated: true)
+            }
+            else {
+                navigationItem.setRightBarButtonItems([shareButton], animated: true)
+            }
+        }
+    }
+ 
+    @IBAction func share(sender: AnyObject) {
+        if searches.isEmpty {
+            return
+        }
+        
+        if !selectedPhotos.isEmpty {
+            var imageArray = [UIImage]()
+            for photo in self.selectedPhotos {
+                imageArray.append(photo.thumbnail!);
+            }
+            
+            let shareScreen = UIActivityViewController(activityItems: imageArray, applicationActivities: nil)
+            let popover = UIPopoverController(contentViewController: shareScreen)
+            popover.presentPopoverFromBarButtonItem(self.navigationItem.rightBarButtonItems!.first as! UIBarButtonItem,
+                permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+        }
+        sharing = !sharing
+    }
+}
 
+    
+    
+//    
+//    @IBAction func share(sender: AnyObject) {
+//        if searches.isEmpty {
+//            return
+//        }
+//        
+//        If !selectedPhotos.isEmpty {
+//            var imageArray = [UIImage]()
+//            for photo in self.selectedPhotos {
+//                imageArray.append(photo.thumbnail!);
+//            }
+//            
+//            let shareScreen = UIActivityViewController(activityItems: imageArray, applicationActivities: nil)
+//            let popover = UIPopoverController(contentViewController: shareScreen)
+//            popover.presentPopoverFromBarButtonItem(self.navigationItem.rightBarButtonItems!.first as! UIBarButtonItem,
+//                permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+//        }
+//        
+//        sharing = !sharing
+//    }
+//    
+
+    
+    
+    
 //    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 //        //1
 //        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PIPPhotoCell
@@ -59,7 +130,7 @@ class PIPPhotosViewController: UICollectionViewController {
 //        return cell
 //    }
 
-}
+//}
 
     extension PIPPhotosViewController : UITextFieldDelegate {
         func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -233,6 +304,10 @@ extension PIPPhotosViewController : UICollectionViewDelegateFlowLayout {
         
         override func collectionView(collectionView: UICollectionView,
             shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+                if sharing {
+                    return true
+                }
+                
                 if largePhotoIndexPath == indexPath {
                     largePhotoIndexPath = nil
                 }
@@ -241,10 +316,32 @@ extension PIPPhotosViewController : UICollectionViewDelegateFlowLayout {
                 }
                 return false
         }
+        
+        override func collectionView(collectionView: UICollectionView,
+            didSelectItemAtIndexPath indexPath: NSIndexPath) {
+                if sharing {
+                    let photo = photoForIndexPath(indexPath)
+                    selectedPhotos.append(photo)
+                    updateSharedPhotoCount()
+                }
+        }
+        
     }
-    
-    
-    
-    
+
+
+//override func collectionView(collectionView: UICollectionView!,
+//    didDeselectItemAtIndexPath indexPath: NSIndexPath!) {
+//        if sharing {
+//            if let foundIndex = find(selectedPhotos, photoForIndexPath(indexPath)) {
+//                selectedPhotos.removeAtIndex(foundIndex)
+//                updateSharedPhotoCount()
+//            }
+//        }
+//}
+//
+
+
+
+
 
 
